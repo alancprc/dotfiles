@@ -26,7 +26,7 @@ set nobackup
 if has("unix") && v:version >= 703
     set undodir=~/.vim/undodir
     set undofile
-else
+elseif v:version >= 703
     set noundofile
 endif
 
@@ -245,21 +245,23 @@ let g:ycm_autoclose_preview_windows_after_insertion = 1
 " junegunn/vim-plug
 " ========================================
 " installation
-if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+if v:version >= 801
+    if empty(glob('~/.vim/autoload/plug.vim'))
+        silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+                    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+        autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+    endif
+
+    call plug#begin('~/.vim/plugged')
+
+    Plug 'plasticboy/vim-markdown'
+    Plug 'iamcco/markdown-preview.nvim', { 'do' : { -> mkdp#util#install() } }
+    " Plug 'iamcco/markdown-preview.nvim', { 'do' : 'cd app & yarn install' }
+    Plug 'junegunn/limelight.vim'
+    Plug 'junegunn/goyo.vim', { 'for' : 'markdown' }
+
+    call plug#end()
 endif
-
-call plug#begin('~/.vim/plugged')
-
-Plug 'plasticboy/vim-markdown'
-Plug 'iamcco/markdown-preview.nvim', { 'do' : { -> mkdp#util#install() } }
-" Plug 'iamcco/markdown-preview.nvim', { 'do' : 'cd app & yarn install' }
-Plug 'junegunn/limelight.vim'
-Plug 'junegunn/goyo.vim', { 'for' : 'markdown' }
-
-call plug#end()
 
 " ========================================
 " plasticboy/vim-markdown
