@@ -1,10 +1,11 @@
+#!/bin/csh
+
 # setting Personal environment in addition to ~/.cshrc
 # usage:
 # 1. copy this file under your home directory.
 # 2. add a line as follows in your ~/.cshrc file
 #    if ( -e ~/.cshrc.custom ) then source ~/.cshrc.custom
 # 3. source .cshrc
-# update: Tue Mar 27 15:57:11 CST 2018
 
 # Set default editor
 setenv EDITOR vim
@@ -28,10 +29,12 @@ alias   ls      ls --color=yes
 alias   la      ls -A --color=yes
 alias   ll      ls -l --color=yes
 alias   lla     ls -lA --color=yes
+alias   l.      ls -d .*
 
 alias   ds      'ssh aliang@10.40.80.28'
 alias   dt      'ssh aliang@10.40.80.40'
 alias   dt7     'ssh aliang@10.40.80.129'
+alias   dv      'ssh 10.40.80.44'
 #alias   dt-nam  'ssh swang@159.75.112.187'
 
 # Add to PATH to get LTXC programs
