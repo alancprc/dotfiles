@@ -1,0 +1,70 @@
+#!/bin/bash
+
+# to source this file,
+# uncomment and append following 3 lines to ~/.bashrc
+#if [ -f ~/.bashrc.custom ]; then source ~/.bashrc.custom; fi
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+# ========================================
+# alias for ls
+# ========================================
+alias ls='ls --color=auto'
+alias la='ls -A'
+alias ll='ls -l'
+alias lla='ls -Al'
+alias l.='ls -d .*'
+
+# ========================================
+# history setting
+# ========================================
+export HISTCONTROL=ignoredups
+export HISTSIZE=1000000
+export HISTFILESIZE=2000000
+export HISTTIMEFORMAT="%F %T "
+
+# ========================================
+# ssh alias
+# ========================================
+alias dt='ssh 10.40.80.40'
+alias ds='ssh 10.40.80.22'
+alias dv='ssh 10.40.80.44'
+
+# ========================================
+# ruby gems
+# ========================================
+#export PATH="~/.bin:~/.gem/ruby/2.5.0/bin{$PATH:+:{PATH}}"
+#export GEM_HOME=$HOME/.gems
+#export PATH=$HOME/.gems/bin:$PATH
+#export GEM_HOME=$(ruby -e 'print Gem.user_dir')
+
+# ========================================
+# env for perl/cpanm
+# ========================================
+export PATH="$HOME/perl5/bin${PATH:+:${PATH}}"
+export PERL5LIB="$HOME/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"
+export PERL_LOCAL_LIB_ROOT="$HOME/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"
+export PERL_MB_OPT="--install_base \"$HOME/perl5\""
+export PERL_MM_OPT="INSTALL_BASE=$HOME/perl5"
+
+# ========================================
+# Miscellaneous
+# ========================================
+export EDITOR=vim
+
+umask 022
+
+set bell-style none
+
+export XDG_CONFIG_HOME=~/.config
+
+# Customize Prompt String one
+# Setting PS1 here will cause the window title of wsltty unchanged,
+# leaving a long guid string.
+# move PS1 into .bashrc will be an workaround.
+#PS1='\u@\h \d \A \w \n\$ '
+#PS1='\u@\h \D{%m/%d %r  Week%V %a} \w \n\$ '
+
+# remove windows path on WSL.
+export PATH=$(/usr/bin/printenv PATH | sed -e 's@:/mnt/c.*@@g')
