@@ -51,6 +51,9 @@ setenv PERL_MM_OPT          "INSTALL_BASE=${HOME}/perl5";
 setenv PERL5LIB             "${HOME}/perl5/lib/perl5";
 setenv PATH                 "${HOME}/perl5/bin:${PATH}";
 
+# source setting of perlbrew
+if [ -f ~/perl5/perlbrew/etc/bashrc ]; then source ~/perl5/perlbrew/etc/bashrc; fi
+
 # Add local directory to path
 setenv PATH  ~/.bin:/usr/local/bin:${PATH}
 
