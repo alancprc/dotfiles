@@ -4,7 +4,7 @@
 # usage:
 # 1. copy this file under your home directory.
 # 2. add a line as follows in your ~/.cshrc file
-#    if ( -e ~/.cshrc.custom ) then source ~/.cshrc.custom
+#    if ( -e ~/.cshrc.custom ) source ~/.cshrc.custom
 # 3. source .cshrc
 
 # Set default editor
@@ -52,7 +52,7 @@ setenv PERL5LIB             "${HOME}/perl5/lib/perl5";
 setenv PATH                 "${HOME}/perl5/bin:${PATH}";
 
 # source setting of perlbrew
-if [ -f ~/perl5/perlbrew/etc/bashrc ]; then source ~/perl5/perlbrew/etc/bashrc; fi
+if ( -e ~/perl5/perlbrew/etc/cshrc ) source ~/perl5/perlbrew/etc/cshrc
 
 # Add local directory to path
 setenv PATH  ~/.bin:/usr/local/bin:${PATH}
