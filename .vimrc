@@ -259,7 +259,8 @@ if v:version >= 801
     " Plug 'iamcco/markdown-preview.nvim', { 'do' : 'cd app & yarn install' }
     Plug 'junegunn/limelight.vim'
     Plug 'junegunn/goyo.vim', { 'for' : 'markdown' }
-
+    Plug 'ycm-core/YouCompleteMe', { 'do': './install.py --clang-completer' }
+    Plug 'jlanzarotta/colorSchemeExplorer'
     call plug#end()
 endif
 
