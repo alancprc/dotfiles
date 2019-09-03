@@ -273,6 +273,9 @@ if v:version >= 801
     Plug 'jlanzarotta/colorSchemeExplorer'
     Plug 'yegappan/taglist'
     Plug 'brookhong/cscope.vim'
+    Plug 'altercation/vim-colors-solarized'
+    " Plug 'tpope/vim-fugitive'
+    " Plug 'townk/vim-autoclose'
     call plug#end()
 endif
 
@@ -294,12 +297,11 @@ let g:mkdp_markdown_css='/home/aliang/.github_markdown_css/github-markdown.css'
 " ========================================
 " color scheme
 " ========================================
-if has("unix")
-    if has("gui_running")
-        colorscheme default " morning
-    else
-        colorscheme morning
-    endif
+colorscheme solarized
+set background=light
+
+if has("unix") && has("gui_running")
+    set background=dark
 endif
 
 if &diff
