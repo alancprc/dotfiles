@@ -154,6 +154,9 @@ set noerrorbells
 " auto make
 nmap <silent> <F5> :wa<CR>:make<CR>
 
+" git commit message
+autocmd FileType gitcommit setlocal tabstop=4
+
 " ========================================
 " leader key map
 " ========================================
