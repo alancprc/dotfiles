@@ -209,16 +209,23 @@ autocmd FileType perl imap <C-K> <c-o>:Tidy<cr>
 "autocmd BufWritePre *.pm,*.pl call DoTidy()
 
 " ========================================
-" ctags, taglist
+" ctags
 " ========================================
 " set tags=tags;
 " set autochdir
-
-" nnoremap <silent> <F8> :TlistToggle<CR>
+" 
 " nmap <silent> <F9> :!ctags -R *<CR>
 
-"let Tlist_Show_Menu = 1
-"let Tlist_Auto_Open=1
+" ========================================
+" taglist
+" ========================================
+let Tlist_Show_Menu = 0
+let Tlist_Auto_Open=0
+
+let Tlist_Compact_Format = 1
+let Tlist_GainFocus_On_ToggleOpen = 1
+let Tlist_Close_On_Select = 0
+nnoremap <silent> <F8> :TlistToggle<CR>
 
 " ========================================
 " gtags.vim
@@ -264,6 +271,8 @@ if v:version >= 801
     Plug 'junegunn/goyo.vim', { 'for' : 'markdown' }
     Plug 'ycm-core/YouCompleteMe', { 'do': './install.py --clang-completer' }
     Plug 'jlanzarotta/colorSchemeExplorer'
+    Plug 'yegappan/taglist'
+    Plug 'brookhong/cscope.vim'
     call plug#end()
 endif
 
