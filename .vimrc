@@ -267,6 +267,7 @@ if v:version >= 801
     Plug 'plasticboy/vim-markdown'
     Plug 'iamcco/markdown-preview.nvim', { 'do' : { -> mkdp#util#install() } }
     " Plug 'iamcco/markdown-preview.nvim', { 'do' : 'cd app & yarn install' }
+    Plug 'sindresorhus/github-markdown-css'
     Plug 'junegunn/limelight.vim'
     Plug 'junegunn/goyo.vim', { 'for' : 'markdown' }
     Plug 'ycm-core/YouCompleteMe', { 'do': './install.py --clang-completer' }
@@ -292,7 +293,7 @@ let g:vim_markdown_frontmatter=1
 " iamcco/markdown-preview.nvim
 " ========================================
 let g:mkdp_refresh_slow=1
-let g:mkdp_markdown_css='/home/aliang/.github_markdown_css/github-markdown.css'
+let g:mkdp_markdown_css='/home/alan/.vim/plugged/github-markdown-css/github-markdown.css'
 
 " ========================================
 " color scheme
