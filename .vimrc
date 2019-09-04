@@ -256,7 +256,7 @@ let g:ycm_autoclose_preview_windows_after_insertion = 1
 " ========================================
 " installation
 if v:version >= 801
-    if empty(glob('~/.vim/autoload/plug.vim'))
+    if has("unix") && empty(glob('~/.vim/autoload/plug.vim'))
         silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
                     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
         autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
