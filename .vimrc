@@ -28,6 +28,7 @@ if v:version >= 801
     Plug 'brookhong/cscope.vim'
     Plug 'altercation/vim-colors-solarized'
     Plug 'ludovicchabant/vim-gutentags'
+    Plug 'skywind3000/gutentags_plus'
     " Plug 'tpope/vim-fugitive'
     " Plug 'townk/vim-autoclose'
     call plug#end()
@@ -184,8 +185,8 @@ if v:version >= 801
     vmap <Leader>p "+p
     vmap <Leader>P "+P
 
-    " close any 'Preview' window currently open.
-    nmap <Leader>c :pc<CR>
+    " close any 'Preview'/'Quickfix' window currently open.
+    nmap <Leader>c :pc <bar> cclose<CR>
 endif
 
 " ========================================
@@ -344,3 +345,20 @@ let g:gutentags_ctags_extra_args += ['--output-format=e-ctags']
 
 " 禁用 gutentags 自动加载 gtags 数据库的行为
 let g:gutentags_auto_add_gtags_cscope = 0
+
+" let g:gutentags_define_advanced_commands = 1
+
+" ========================================
+" skywind3000/gutentags_plus
+" ========================================
+" enable gtags module
+let g:gutentags_modules = ['ctags', 'gtags_cscope']
+
+" config project root markers.
+let g:gutentags_project_root = ['.root', '.svn', '.git']
+
+" generate datebases in my cache directory, prevent gtags files polluting my project
+let g:gutentags_cache_dir = expand('~/.cache/tags')
+
+" change focus to quickfix window after search (optional).
+let g:gutentags_plus_switch = 1
