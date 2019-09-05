@@ -272,7 +272,7 @@ if v:version >= 801
     Plug 'junegunn/goyo.vim', { 'for' : 'markdown' }
     Plug 'ycm-core/YouCompleteMe', { 'do': './install.py --clang-completer' }
     Plug 'jlanzarotta/colorSchemeExplorer'
-    Plug 'yegappan/taglist'
+    Plug 'alancprc/vim-taglist'
     Plug 'brookhong/cscope.vim'
     Plug 'altercation/vim-colors-solarized'
     Plug 'ludovicchabant/vim-gutentags'
