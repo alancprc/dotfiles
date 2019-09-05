@@ -4,6 +4,36 @@ source $VIMRUNTIME/vimrc_example.vim
 set nocompatible
 
 " ========================================
+" junegunn/vim-plug
+" ========================================
+" installation
+if v:version >= 801
+    if has("unix") && empty(glob('~/.vim/autoload/plug.vim'))
+        silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+                    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+        autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+    endif
+
+    call plug#begin('~/.vim/plugged')
+
+    Plug 'plasticboy/vim-markdown'
+    Plug 'iamcco/markdown-preview.nvim', { 'do' : { -> mkdp#util#install() } }
+    " Plug 'iamcco/markdown-preview.nvim', { 'do' : 'cd app & yarn install' }
+    Plug 'sindresorhus/github-markdown-css'
+    Plug 'junegunn/limelight.vim'
+    Plug 'junegunn/goyo.vim', { 'for' : 'markdown' }
+    Plug 'ycm-core/YouCompleteMe', { 'do': './install.py --clang-completer' }
+    Plug 'jlanzarotta/colorSchemeExplorer'
+    Plug 'alancprc/vim-taglist'
+    Plug 'brookhong/cscope.vim'
+    Plug 'altercation/vim-colors-solarized'
+    Plug 'ludovicchabant/vim-gutentags'
+    " Plug 'tpope/vim-fugitive'
+    " Plug 'townk/vim-autoclose'
+    call plug#end()
+endif
+
+" ========================================
 " backspace, ambiwidth, history, diffopt
 " ========================================
 " allow backspacing over everything in insert mode
@@ -140,24 +170,6 @@ endif
 set helplang=cn
 
 " ========================================
-" Miscellaneous
-" ========================================
-" Auto read when a file is changed outside
-set autoread
-
-" file type detection
-filetype on
-
-" no error bell
-set noerrorbells
-
-" auto make
-nmap <silent> <F5> :wa<CR>:make<CR>
-
-" git commit message
-autocmd FileType gitcommit setlocal tabstop=4
-
-" ========================================
 " leader key map
 " ========================================
 if v:version >= 801
@@ -175,6 +187,40 @@ if v:version >= 801
     " close any 'Preview' window currently open.
     nmap <Leader>c :pc<CR>
 endif
+
+" ========================================
+" color scheme
+" ========================================
+colorscheme solarized
+set background=light
+
+if has("unix") && has("gui_running")
+    set background=dark
+endif
+
+if &diff
+    set noreadonly
+    colorscheme delek
+    colorscheme default
+endif
+
+" ========================================
+" Miscellaneous
+" ========================================
+" Auto read when a file is changed outside
+set autoread
+
+" file type detection
+filetype on
+
+" no error bell
+set noerrorbells
+
+" auto make
+nmap <silent> <F5> :wa<CR>:make<CR>
+
+" git commit message
+autocmd FileType gitcommit setlocal tabstop=4
 
 " ========================================
 " clang format
@@ -252,36 +298,6 @@ let g:ycm_autoclose_preview_windows_after_completion = 1
 let g:ycm_autoclose_preview_windows_after_insertion = 1
 
 " ========================================
-" junegunn/vim-plug
-" ========================================
-" installation
-if v:version >= 801
-    if has("unix") && empty(glob('~/.vim/autoload/plug.vim'))
-        silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-                    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-        autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-    endif
-
-    call plug#begin('~/.vim/plugged')
-
-    Plug 'plasticboy/vim-markdown'
-    Plug 'iamcco/markdown-preview.nvim', { 'do' : { -> mkdp#util#install() } }
-    " Plug 'iamcco/markdown-preview.nvim', { 'do' : 'cd app & yarn install' }
-    Plug 'sindresorhus/github-markdown-css'
-    Plug 'junegunn/limelight.vim'
-    Plug 'junegunn/goyo.vim', { 'for' : 'markdown' }
-    Plug 'ycm-core/YouCompleteMe', { 'do': './install.py --clang-completer' }
-    Plug 'jlanzarotta/colorSchemeExplorer'
-    Plug 'alancprc/vim-taglist'
-    Plug 'brookhong/cscope.vim'
-    Plug 'altercation/vim-colors-solarized'
-    Plug 'ludovicchabant/vim-gutentags'
-    " Plug 'tpope/vim-fugitive'
-    " Plug 'townk/vim-autoclose'
-    call plug#end()
-endif
-
-" ========================================
 " plasticboy/vim-markdown
 " ========================================
 autocmd FileType markdown let b:sleuth_automatic=0
@@ -295,22 +311,6 @@ let g:vim_markdown_frontmatter=1
 " ========================================
 let g:mkdp_refresh_slow=1
 let g:mkdp_markdown_css='/home/alan/.vim/plugged/github-markdown-css/github-markdown.css'
-
-" ========================================
-" color scheme
-" ========================================
-colorscheme solarized
-set background=light
-
-if has("unix") && has("gui_running")
-    set background=dark
-endif
-
-if &diff
-    set noreadonly
-    colorscheme delek
-    colorscheme default
-endif
 
 " ========================================
 " ludovicchabant/vim-gutentags
