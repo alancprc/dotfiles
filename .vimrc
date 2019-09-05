@@ -274,13 +274,14 @@ let Tlist_Close_On_Select = 0
 nnoremap <silent> <F8> :TlistToggle<CR>
 
 " ========================================
-" gtags.vim
+" gtags
 " ========================================
-let $GTAGSLABEL = 'native-pygments'
+let $GTAGSLABEL = 'native' "'native-pygments'
 let $GTAGSCONF = '/usr/share/gtags/gtags.conf'
 let GtagsCscope_Auto_Load = 1
 let CtagsCscope_Auto_Map = 1
 let GtagsCscope_Quiet = 1
+set cscopeprg=gtags-cscope
 
 " ========================================
 " YouCompleteMe
