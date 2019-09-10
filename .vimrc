@@ -194,15 +194,11 @@ endif
 " ========================================
 colorscheme solarized
 set background=light
-
-if has("unix") && has("gui_running")
-    set background=dark
-endif
+let g:solarized_diffmode="high"    "default value is normal
 
 if &diff
     set noreadonly
-    colorscheme delek
-    colorscheme default
+    colorscheme solarized
 endif
 
 " ========================================
