@@ -31,6 +31,7 @@ if v:version >= 801
     Plug 'skywind3000/gutentags_plus'
     " Plug 'tpope/vim-fugitive'
     " Plug 'townk/vim-autoclose'
+    Plug 'octol/vim-cpp-enhanced-highlight'
     call plug#end()
 endif
 
