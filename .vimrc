@@ -309,7 +309,7 @@ let g:vim_markdown_frontmatter=1
 " iamcco/markdown-preview.nvim
 " ========================================
 let g:mkdp_refresh_slow=1
-let g:mkdp_markdown_css='/home/alan/.vim/plugged/github-markdown-css/github-markdown.css'
+let g:mkdp_markdown_css='/home/aliang/.vim/plugged/github-markdown-css/github-markdown.css'
 
 " ========================================
 " ludovicchabant/vim-gutentags
