@@ -225,11 +225,11 @@ autocmd FileType gitcommit setlocal tabstop=4
 " ========================================
 function! FormatonSaveCpp()
   let l:formatdiff = 1
-  pyf /usr/local/share/clang/clang-format.py
+  pyf /usr/share/clang/clang-format.py
 endfunction
 
-autocmd FileType c,cpp map <C-K> :pyf /usr/local/share/clang/clang-format.py<cr>
-autocmd FileType c,cpp imap <C-K> <c-o>:pyf /usr/local/share/clang/clang-format.py<cr>
+autocmd FileType c,cpp map <C-K> :pyf /usr/share/clang/clang-format.py<cr>
+autocmd FileType c,cpp imap <C-K> <c-o>:pyf /usr/share/clang/clang-format.py<cr>
 
 "autocmd BufWritePre *.h,*.cc,*.cpp call FormatonSaveCpp()
 
