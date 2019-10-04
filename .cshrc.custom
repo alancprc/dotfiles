@@ -50,6 +50,7 @@ setenv PERL_MB_OPT          "--install_base ${HOME}/perl5";
 setenv PERL_MM_OPT          "INSTALL_BASE=${HOME}/perl5";
 setenv PERL5LIB             "${HOME}/perl5/lib/perl5";
 setenv PATH                 "${HOME}/perl5/bin:${PATH}";
+setenv PERL_CPANM_OPT       "--mirror http://mirrors.163.com/cpan"
 
 # source setting of perlbrew
 if ( -e ~/perl5/perlbrew/etc/cshrc ) source ~/perl5/perlbrew/etc/cshrc
