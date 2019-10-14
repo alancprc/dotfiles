@@ -40,6 +40,8 @@ alias   dv      'ssh 10.40.80.44'
 # Add to PATH to get LTXC programs
 setenv PATH ${PATH}:/ltx/com:/ltx/service:/ltx/scripts:/ltx/cmd:/ltx/apps_support/com
 setenv XUSERFILESEARCHPATH /home/aliang/app-defaults/%N
+# for method compiler
+setenv CUSTOMER_DIR /ltx/customer
 
 # Add to PATH to get acrobat reader
 setenv PATH ${PATH}:/usr/local/Adobe/Acrobat7.0/bin
