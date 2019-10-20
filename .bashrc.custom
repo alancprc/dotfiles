@@ -25,13 +25,6 @@ export HISTFILESIZE=2000000
 export HISTTIMEFORMAT="%F %T "
 
 # ========================================
-# ssh alias
-# ========================================
-alias dt='ssh 10.40.80.40'
-alias ds='ssh 10.40.80.22'
-alias dv='ssh 10.40.80.44'
-
-# ========================================
 # ruby gems
 # ========================================
 #export PATH="~/.bin:~/.gem/ruby/2.5.0/bin{$PATH:+:{PATH}}"
@@ -51,11 +44,13 @@ export PERL_CPANM_OPT="--mirror http://mirrors.163.com/cpan"
 
 # source setting of perlbrew
 if [ -f ~/perl5/perlbrew/etc/bashrc ]; then source ~/perl5/perlbrew/etc/bashrc; fi
+export PERLBREW_CPAN_MIRROR="http://mirrors.163.com/cpan"
 
 # ========================================
 # Miscellaneous
 # ========================================
 export EDITOR=vim
+alias vi=vim
 
 umask 022
 
@@ -72,3 +67,6 @@ export XDG_CONFIG_HOME=~/.config
 
 # remove windows path on WSL.
 export PATH=$(/usr/bin/printenv PATH | sed -e 's@:/mnt/c.*@@g')
+
+# Add local directory to path
+export PATH="~/.bin:/usr/local/bin${PATH:+:$PATH}"
