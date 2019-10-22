@@ -20,7 +20,7 @@ else
 fi
 
 # Add to PATH to get LTXC programs
-export PATH=${PATH:+$PATH:}$ltx/com:$ltx/service:$ltx/scripts:$ltx/cmd:$ltx/apps_support/com:$ltx/bin:/opt/totalview/bin:/opt/ltx/bin
+export PATH=${PATH:+$PATH:}/opt/ltx/bin:$ltx/com:$ltx/service:$ltx/scripts:$ltx/cmd:$ltx/apps_support/com:$ltx/bin:/opt/totalview/bin
 # for method compiler
 export CUSTOMER_DIR=$ltx/customer
 # for acrobat reader
