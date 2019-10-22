@@ -1,0 +1,81 @@
+#!/bin/bash
+
+# to source this file,
+# uncomment and append following 3 lines to ~/.bashrc
+#if [ -f ~/.bashrc.unison ]; then source ~/.bashrc.unison; fi
+
+# ========================================
+# Unison
+# ========================================
+
+if [ -n $DEBUG_ON ]; then set echo; fi;
+
+# set ltx PATH components :
+if [ -f /opt/ltx/bin/get_revision ]; then
+    ltx=`/opt/ltx/bin/get_revision`
+elif [ $?LTXHOME ]; then
+    ltx=$LTXHOME
+else
+    ltx="/ltx"
+fi
+
+# Add to PATH to get LTXC programs
+export PATH=${PATH:+$PATH:}/opt/ltx/bin:$ltx/com:$ltx/service:$ltx/scripts:$ltx/cmd:$ltx/apps_support/com:$ltx/bin:/opt/totalview/bin
+# for method compiler
+export CUSTOMER_DIR=$ltx/customer
+# for acrobat reader
+export PATH=${PATH:+$PATH:}/usr/local/Adobe/Acrobat7.0/bin
+
+# Device tool variables:
+#setenv SDA_LOG_DIRECTORY "~/cdslogs"
+#setenv CDS_NUM_USER_COLORS "48"
+# Replace /cds with the actual install path of the Cadence Design Systems software.
+#setenv CDS_INSTALL_PATH "/cds"
+#setenv MANPATH "${MANPATH}:${CDS_INSTALL_PATH}/tools/dfII/man"
+#setenv opusPath "${CDS_INSTALL_PATH}/tools/bin:${CDS_INSTALL_PATH}/tools/dfII/bin"
+#setenv path "$PATH:$opusPath"
+
+# General variables:
+export CDPATH=".:~:$ltx:/user"
+
+# This variable is needed for X application resource files.
+# NOTE: XUSERFILESEARCHPATH is preferred over XAPPLRESDIR in X11R4+
+export XUSERFILESEARCHPATH="~/app-defaults/%N"
+
+# Change 'blah' to a file name in /ltx/printers.  This will be the
+# default printer for the ltx tools.
+#setenv LTX_PRINTER blah
+
+# Setting the LTX_UICPATH variable to a particular path will make all 
+# tools search that path for their configuration files
+#setenv LTX_UICPATH .:~/:$ltx/site:$ltx/defaults
+
+# This is creating an alias in the environment for every file in
+# /usr/dmd/current/system/bin to first source
+# /usr/dmd/current/setup/runtime_env.csh then run the executable in a separate
+# csh process so that the setting of LD_LIBRARY_PATH gets set correctly to
+# execute any legacy Diamonds executables.  The separate csh process is needed
+# so that the enironment does not get tainted with legacy Diamond settings and
+# thus breaking Unison execuatbles. This is sspecially important for things like
+# Qt which uses different versions between Unison and legacy Diamond.
+
+if [ ! $?LD_LIBRARY_PATH ]; then
+	export LD_LIBRARY_PATH=/lib:/usr/lib:/usr/X11R6/lib:/usr/local/lib
+fi
+
+# alias set_revision 'setenv chosen_ltx  \!*; source /opt/ltx/bin/set_revision.csh'
+# allows the user to set LTXHOME in the current shell by typing
+#    set_revision <path>
+
+# Unison license
+export XLM_ENABLE_LM_LICENSE_FILE=1
+export LM_LICENSE_FILE=/opt/LTXflexnet/license.dat:/usr/local/flexlm/licenses/cmos_vld.lic
+
+# ========================================
+# ssh alias
+# ========================================
+alias dt='ssh 10.40.80.40'
+alias ds='ssh 10.40.80.22'
+alias dv='ssh 10.40.80.44'
+#alias   dt-nam  'ssh swang@159.75.112.187'
+
