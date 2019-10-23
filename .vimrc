@@ -207,6 +207,8 @@ endif
 " ========================================
 " Auto read when a file is changed outside
 set autoread
+" auto change dir to current file
+set autochdir
 
 " file type detection
 filetype on
