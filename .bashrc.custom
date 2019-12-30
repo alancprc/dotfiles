@@ -68,5 +68,7 @@ export XDG_CONFIG_HOME=~/.config
 # remove windows path on WSL.
 export PATH=$(/usr/bin/printenv PATH | sed -e 's@:/mnt/c.*@@g')
 
-# Add local directory to path
-export PATH="~/.bin:/usr/local/bin${PATH:+:$PATH}"
+# Add local directory to PATH/LD_LIBRARY_PATH
+export PATH="~/.local/bin:~/.bin:/usr/local/bin${PATH:+:$PATH}"
+
+export LD_LIBRARY_PATH="~/.local/lib:~/.local/lib64:/usr/local/lib:/usr/local/lib64${PATH:+:$PATH}"

@@ -79,3 +79,5 @@ alias ds='ssh 10.40.80.22'
 alias dv='ssh 10.40.80.44'
 #alias   dt-nam  'ssh swang@159.75.112.187'
 
+# add LD_LIBRARY_PATH for unison libs
+export LD_LIBRARY_PATH="$CUSTOMER_DIR/lib:$CUSTOMER_DIR/lib64:${PATH:+:$PATH}"
