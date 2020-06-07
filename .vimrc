@@ -22,7 +22,11 @@ if v:version >= 801
     Plug 'sindresorhus/github-markdown-css', { 'branch' : 'gh-pages' }
     Plug 'junegunn/limelight.vim'
     Plug 'junegunn/goyo.vim', { 'for' : 'markdown' }
-    Plug 'ycm-core/YouCompleteMe', { 'do': './install.py --clang-completer' }
+    " for CentOS 6, only libclang is available
+    " Plug 'ycm-core/YouCompleteMe', { 'do': './install.py --clang-completer' }
+    " for CentOS 7/Arch, use clangd
+    Plug 'ycm-core/YouCompleteMe', { 'do': './install.py --clangd-completer', 'frozen' : 1 }
+    Plug 'davidhalter/jedi-vim'
     Plug 'jlanzarotta/colorSchemeExplorer'
     Plug 'alancprc/vim-taglist'
     Plug 'brookhong/cscope.vim'
@@ -222,6 +226,9 @@ nmap <silent> <F5> :wa<CR>:make<CR>
 " git commit message
 autocmd FileType gitcommit setlocal tabstop=4
 
+" close all
+nnoremap <silent> <F4> :qa!<CR>
+
 " ========================================
 " clang format
 " ========================================
@@ -297,6 +304,8 @@ let g:ycm_semantic_triggers = { 'c,cpp,python,perl': ['re!\w{2}'] }
 " auto close preview windows, doesn't work however.
 let g:ycm_autoclose_preview_windows_after_completion = 1
 let g:ycm_autoclose_preview_windows_after_insertion = 1
+" prevent clangd add header files
+let g:ycm_clangd_args = [ '--header-insertion=never' ]
 
 " ========================================
 " plasticboy/vim-markdown
