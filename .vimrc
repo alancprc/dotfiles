@@ -193,6 +193,7 @@ if v:version >= 801
     " close any 'Preview'/'Quickfix' window currently open.
     nmap <Leader>c :pc <bar> cclose<CR>
 endif
+nnoremap <silent> <F4> :qa!<CR>
 
 " ========================================
 " color scheme
