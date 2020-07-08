@@ -193,6 +193,7 @@ if v:version >= 801
     " close any 'Preview'/'Quickfix' window currently open.
     nmap <Leader>c :pc <bar> cclose<CR>
 endif
+" close all
 nnoremap <silent> <F4> :qa!<CR>
 
 " ========================================
@@ -226,9 +227,6 @@ nmap <silent> <F5> :wa<CR>:make<CR>
 
 " git commit message
 autocmd FileType gitcommit setlocal tabstop=4
-
-" close all
-nnoremap <silent> <F4> :qa!<CR>
 
 " ========================================
 " clang format
