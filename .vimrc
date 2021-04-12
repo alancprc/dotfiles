@@ -36,6 +36,9 @@ if v:version >= 801
     " Plug 'tpope/vim-fugitive'
     " Plug 'townk/vim-autoclose'
     Plug 'octol/vim-cpp-enhanced-highlight'
+
+    Plug 'skywind3000/vim-auto-popmenu'
+    Plug 'skywind3000/vim-dict'
     call plug#end()
 endif
 
@@ -369,3 +372,19 @@ let g:gutentags_cache_dir = expand('~/.cache/tags')
 
 " change focus to quickfix window after search (optional).
 let g:gutentags_plus_switch = 1
+
+" ========================================
+" skywind3000/vim-auto-popmenu
+" ========================================
+
+" 设定需要生效的文件类型，如果是 "*" 的话，代表所有类型
+let g:apc_enable_ft = {'text':1, 'markdown':1, 'php':1}
+
+" 设定从字典文件以及当前打开的文件里收集补全单词，详情看 ':help cpt'
+set cpt=.,k,w,b
+
+" 不要自动选中第一个选项。
+set completeopt=menu,menuone,noselect
+
+" 禁止在下方显示一些啰嗦的提示
+set shortmess+=c
